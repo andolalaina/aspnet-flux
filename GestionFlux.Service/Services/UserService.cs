@@ -1,4 +1,5 @@
 ﻿using GestionFlux.Domain.Models;
+using GestionFlux.Repository;
 using GestionFlux.Repository.Interfaces;
 using GestionFlux.Service.Interfaces;
 using GestionFlux.Service.Services;
@@ -12,9 +13,9 @@ namespace GestionFlux.Service.Services
 {
    public class UserService : IUserService
     {
-        private IRepository<User> userRepository;
+        private Repository<User> userRepository;
 
-        public UserService(IRepository<User> userRepository)
+        public UserService(Repository<User> userRepository)
         {
             this.userRepository = userRepository;
         }
