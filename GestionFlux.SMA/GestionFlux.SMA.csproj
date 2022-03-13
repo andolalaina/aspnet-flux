@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GestionFlux.Domain\GestionFlux.Domain.csproj">
-      <Project>{45ad225a-46fa-4743-825c-482b06d9aa5b}</Project>
+      <Project>{49f963b3-9528-4220-8600-3b4cabb80ced}</Project>
       <Name>GestionFlux.Domain</Name>
     </ProjectReference>
   </ItemGroup>

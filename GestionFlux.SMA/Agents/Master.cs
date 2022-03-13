@@ -1,4 +1,4 @@
-﻿using GestionFlux.Domain.Interfaces;
+﻿using GestionFlux.SMA.Interfaces;
 using GestionFlux.Domain.Models;
 using System;
 using System.Collections.Generic;

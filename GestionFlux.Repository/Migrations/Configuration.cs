@@ -1,4 +1,4 @@
-﻿namespace GestionFlux.Domain.Migrations
+﻿namespace GestionFlux.Repository.Migrations
 {
     using System;
     using System.Data.Entity;
