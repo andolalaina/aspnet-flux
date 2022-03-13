@@ -11,6 +11,6 @@ namespace GestionFlux.SMA.Agents
 {
     public class Logistique : IAgent
     {
-        public BlackBoard BlackBoard => throw new NotImplementedException();
+        public BlackBoard BlackBoard { get; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.32126.317
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFlux", "GestionFlux.csproj", "{5A642C5E-8078-45AB-B98C-AFD489420A40}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFlux.Domain", "GestionFlux.Domain\GestionFlux.Domain.csproj", "{49F963B3-9528-4220-8600-3B4CABB80CED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFlux.Repository", "GestionFlux.Repository\GestionFlux.Repository.csproj", "{1DC5E66E-3E65-4984-B195-62B1F48135DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFlux.Service", "GestionFlux.Service\GestionFlux.Service.csproj", "{8872BD2A-C7D8-4A99-B556-96D9A05750D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1DC5E66E-3E65-4984-B195-62B1F48135DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DC5E66E-3E65-4984-B195-62B1F48135DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DC5E66E-3E65-4984-B195-62B1F48135DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8872BD2A-C7D8-4A99-B556-96D9A05750D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8872BD2A-C7D8-4A99-B556-96D9A05750D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8872BD2A-C7D8-4A99-B556-96D9A05750D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8872BD2A-C7D8-4A99-B556-96D9A05750D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

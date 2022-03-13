@@ -10,6 +10,6 @@ namespace GestionFlux.Domain.Agents
 {
     public class Marketing : IAgent
     {
-        public BlackBoard BlackBoard => throw new NotImplementedException();
+        public BlackBoard BlackBoard { get; }
     }
 }

@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<GestionFlux.Domain.FluxDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<GestionFlux.Repository.FluxDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(GestionFlux.Domain.FluxDbContext context)
+        protected override void Seed(GestionFlux.Repository.FluxDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
