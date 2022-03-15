@@ -11,13 +11,25 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Service.Services
 {
-   public class UserService : IUserService
+   public class UserService : IUserService, IObservable<User>
     {
         private Repository<User> userRepository;
+        private List<IObserver<User>> observers;
+        private User lastInsertedUser;
 
         public UserService(Repository<User> userRepository)
         {
             this.userRepository = userRepository;
+        }
+
+        public IDisposable Subscribe(IObserver<User> observer)
+        {
+            if (!observers.Contains(observer))
+            {
+                observers.Add(observer);
+                observer.OnNext(lastInsertedUser);
+            }
+            return new Unsubscriber<User>(observers, observer);
         }
 
         public IEnumerable<User> GetUsers()
@@ -33,6 +45,7 @@ namespace GestionFlux.Service.Services
         public void InsertUser(User user)
         {
             userRepository.Insert(user);
+            lastInsertedUser = user;
         }
         public void UpdateUser(User user)
         {
@@ -44,6 +57,24 @@ namespace GestionFlux.Service.Services
             User user = GetUser(id);
             userRepository.Remove(user);
             userRepository.SaveChanges();
+        }
+    }
+
+    internal class Unsubscriber<User> : IDisposable
+    {
+        private List<IObserver<User>> _observers;
+        private IObserver<User> _observer;
+
+        internal Unsubscriber(List<IObserver<User>> observers, IObserver<User> observer)
+        {
+            this._observers = observers;
+            this._observer = observer;
+        }
+
+        public void Dispose()
+        {
+            if (_observers.Contains(_observer))
+                _observers.Remove(_observer);
         }
     }
 }
