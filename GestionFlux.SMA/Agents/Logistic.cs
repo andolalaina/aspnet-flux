@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.SMA.Agents
 {
-    public class Logistique : IAgent
+    public class Logistic : IAgent
     {
         public BlackBoard BlackBoard { get; }
     }

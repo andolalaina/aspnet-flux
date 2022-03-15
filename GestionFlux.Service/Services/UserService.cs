@@ -20,11 +20,12 @@ namespace GestionFlux.Service.Services
         public UserService(Repository<User> userRepository)
         {
             this.userRepository = userRepository;
+            observers = new List<IObserver<User>>();
         }
 
         public IDisposable Subscribe(IObserver<User> observer)
         {
-            if (!observers.Contains(observer))
+            if(!observers.Contains(observer))
             {
                 observers.Add(observer);
                 observer.OnNext(lastInsertedUser);
@@ -46,6 +47,7 @@ namespace GestionFlux.Service.Services
         {
             userRepository.Insert(user);
             lastInsertedUser = user;
+            DispatchUserInsert();
         }
         public void UpdateUser(User user)
         {
@@ -57,6 +59,16 @@ namespace GestionFlux.Service.Services
             User user = GetUser(id);
             userRepository.Remove(user);
             userRepository.SaveChanges();
+        }
+
+        private void DispatchUserInsert()
+        {
+            if (observers != null)
+            {
+                System.Diagnostics.Debug.WriteLine("Dispatching...");
+                foreach (var observer in observers) observer.OnNext(lastInsertedUser);
+            }
+            else System.Diagnostics.Debug.WriteLine("No observers...");
         }
     }
 

@@ -1,6 +1,8 @@
 ﻿using GestionFlux.Domain.Models;
 using GestionFlux.Service.Interfaces;
+using GestionFlux.Service.Services;
 using GestionFlux.ViewModels;
+using GestionFlux.SMA.Agents;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +13,14 @@ namespace GestionFlux.Controllers
 {
     public class UserController : Controller
     {
-        private readonly IUserService userService;
+        private readonly UserService userService;
+        private Master masterAgent;
 
         public UserController(IUserService userService)
         {
-            this.userService = userService;
+            this.userService = (UserService)userService;
+            masterAgent = new Master();
+            masterAgent.Subscribe(this.userService);
         }
         [HttpGet]
         public ActionResult Index()

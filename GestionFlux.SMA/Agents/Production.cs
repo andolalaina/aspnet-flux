@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionFlux.Domain.Agents
+namespace GestionFlux.SMA.Agents
 {
     public class Production : IAgent
     {
