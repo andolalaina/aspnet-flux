@@ -47,6 +47,7 @@
     <Compile Include="Agents\Production.cs" />
     <Compile Include="Agents\Stock.cs" />
     <Compile Include="Interfaces\IAgent.cs" />
+    <Compile Include="Interfaces\ITransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
