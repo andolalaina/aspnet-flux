@@ -1,4 +1,5 @@
-﻿using GestionFlux.Service.Interfaces;
+﻿using GestionFlux.Domain.Models;
+using GestionFlux.Service.Interfaces;
 using GestionFlux.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,11 +27,39 @@ namespace GestionFlux.Controllers
                 {
                     Id = u.Id,
                     Name = u.Name,
-                    Email = u.Email
+                    Email = u.Email,
+                    Department = u.department.Name
                 };
                 model.Add(user);
             });
 
+            return View(model);
+        }
+        
+        [HttpGet]
+        public ActionResult Create()
+        {
+            UserViewModel model = new UserViewModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Create(UserViewModel model)
+        {
+            User userEntity = new User
+            {
+                Name = model.Name,
+                Email = model.Email,
+                department = new Department
+                {
+                    Name = model.Department
+                }
+            };
+            userService.InsertUser(userEntity);
+            if (userEntity.Id > 0)
+            {
+                return RedirectToAction("index");
+            }
             return View(model);
         }
     }

@@ -15,5 +15,7 @@ namespace GestionFlux.ViewModels
         public string Name { get; set; }
         [Display(Name = "Email")]
         public string Email { get; set; }
+        [Display(Name = "Département")]
+        public string Department { get; set; }
     }
 }

@@ -26,7 +26,6 @@ namespace GestionFlux
             // e.g. container.RegisterType<ITestService, TestService>();  
 
             container.RegisterType<IUserService, UserService>();
-            container.RegisterType<IController, UserController>("User");
 
             return container;
         }
