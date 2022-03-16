@@ -1,4 +1,6 @@
-﻿using GestionFlux.Service.Interfaces;
+﻿using GestionFlux.API.ViewModels;
+using GestionFlux.Domain.Models;
+using GestionFlux.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +34,26 @@ namespace GestionFlux.API.Controllers
         {
             if (messageService.GetRequest(requestId) == null) return NotFound();
             return Ok(messageService.GetRequest(requestId));
+        }
+
+        [HttpPost]
+        [Route("api/requests")]
+        public IHttpActionResult Create([FromBody] RequestViewModel model)
+        {
+            try
+            {
+                Request request = new Request
+                {
+                    Sender = userService.GetUser(model.SenderId),
+                    SendTo = userService.GetUser(model.SentToId),
+                    SendDate = DateTime.Now,
+                    Description = model.Description
+                };
+                return Ok(request);
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
     }
 }
