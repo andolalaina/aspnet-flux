@@ -11,11 +11,12 @@ namespace GestionFlux.Service.Interfaces
     public interface IMessageService
     {
         IEnumerable<Request> GetRequests();
-        IEnumerable<Request> GetRequests(User sender);
+        IEnumerable<Request> GetSenderRequests(int senderId);
+        IEnumerable<Request> GetSentToRequests(int sentToId);
         Request GetRequest(int id);
         void InsertRequest(Request request);
 
-        IEnumerable<Notification> GetNotifications(User sender);
+        IEnumerable<Notification> GetNotifications(int sentToId);
         Notification GetNotification(int id);
         void InsertNotification(Notification notification);
     }

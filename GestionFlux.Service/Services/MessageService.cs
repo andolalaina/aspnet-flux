@@ -23,9 +23,13 @@ namespace GestionFlux.Service.Services
         {
             return requestRepository.GetAll();
         }
-        public IEnumerable<Request> GetRequests(User sender)
+        public IEnumerable<Request> GetSenderRequests(int senderId)
         {
-            return requestRepository.GetAll().Where(x => x.Sender == sender);
+            return requestRepository.GetAll().Where(x => x.Sender.Id.Equals(senderId));
+        }
+        public IEnumerable<Request> GetSentToRequests(int sentToId)
+        {
+            return requestRepository.GetAll().Where(x => x.SendTo.Id.Equals(sentToId));
         }
         public Request GetRequest(int id)
         {
@@ -36,9 +40,9 @@ namespace GestionFlux.Service.Services
             requestRepository.Insert(request);
         }
 
-        public IEnumerable<Notification> GetNotifications(User sendTo)
+        public IEnumerable<Notification> GetNotifications(int sentToId)
         {
-            return notificationRepository.GetAll().Where(x => x.SendTo == sendTo);
+            return notificationRepository.GetAll().Where(x => x.SendTo.Id.Equals(sentToId));
         }
 
         public Notification GetNotification(int id)

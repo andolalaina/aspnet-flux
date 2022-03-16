@@ -22,6 +22,7 @@ namespace GestionFlux.API
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
 
             container.RegisterType<IUserService, UserService>();
+            container.RegisterType<IMessageService, MessageService>();
             //container.RegisterType<UsersController>(new InjectionConstructor(typeof(IUserService)));
 
             container.RegisterInstance(typeof (HttpConfiguration), GlobalConfiguration.Configuration);
