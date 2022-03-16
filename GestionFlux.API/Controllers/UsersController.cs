@@ -25,6 +25,12 @@ namespace GestionFlux.API.Controllers
             return Ok(userService.GetUsers());
         }
 
+        [HttpGet]
+        public IHttpActionResult Get(int id)
+        {
+            return Ok(userService.GetUser(id));
+        }
+
         [HttpPost]
         public IHttpActionResult Create([FromBody] UserViewModel model)
         {

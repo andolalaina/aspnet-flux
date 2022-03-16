@@ -20,15 +20,18 @@ namespace GestionFlux.API.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult Get()
+        [Route("api/requests")]
+        public IHttpActionResult Get([FromUri] int sender = 0, [FromUri] int sentTo = 0)
         {
-            return Ok(messageService.GetRequests());
+            return Ok(messageService.GetRequests(sender, sentTo));
         }
 
         [HttpGet]
-        public IHttpActionResult Get([FromUri] int userId)
+        [Route("api/requests/{requestId}")]
+        public IHttpActionResult Get(int requestId)
         {
-            return Ok(messageService.GetSenderRequests(userId));
+            if (messageService.GetRequest(requestId) == null) return NotFound();
+            return Ok(messageService.GetRequest(requestId));
         }
     }
 }

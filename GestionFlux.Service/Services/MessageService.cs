@@ -19,17 +19,12 @@ namespace GestionFlux.Service.Services
             this.requestRepository = requestRepo;
             this.notificationRepository = notificationRepo;
         }
-        public IEnumerable<Request> GetRequests()
+        public IEnumerable<Request> GetRequests(int? senderId = 0, int? sentToId = 0)
         {
-            return requestRepository.GetAll();
-        }
-        public IEnumerable<Request> GetSenderRequests(int senderId)
-        {
-            return requestRepository.GetAll().Where(x => x.Sender.Id.Equals(senderId));
-        }
-        public IEnumerable<Request> GetSentToRequests(int sentToId)
-        {
-            return requestRepository.GetAll().Where(x => x.SendTo.Id.Equals(sentToId));
+            IEnumerable<Request> requests = requestRepository.GetAll();
+            if (senderId != 0) requests = requests.Where(x => x.Sender.Id.Equals(senderId));
+            if (sentToId != 0) requests = requests.Where(x => x.SendTo.Id.Equals(sentToId));
+            return requests;
         }
         public Request GetRequest(int id)
         {

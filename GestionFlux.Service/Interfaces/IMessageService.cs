@@ -10,9 +10,7 @@ namespace GestionFlux.Service.Interfaces
 {
     public interface IMessageService
     {
-        IEnumerable<Request> GetRequests();
-        IEnumerable<Request> GetSenderRequests(int senderId);
-        IEnumerable<Request> GetSentToRequests(int sentToId);
+        IEnumerable<Request> GetRequests(int? senderId = 0, int? sentToId = 0);
         Request GetRequest(int id);
         void InsertRequest(Request request);
 
