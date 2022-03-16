@@ -11,27 +11,29 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Service.Services
 {
-   public class UserService : IUserService, IObservable<User>
+   public class UserService : IUserService
     {
         private Repository<User> userRepository;
-        private List<IObserver<User>> observers;
-        private User lastInsertedUser;
+        private Repository<Department> departmentRepository;
+        //private List<IObserver<User>> observers;
+        //private User lastInsertedUser;
 
-        public UserService(Repository<User> userRepository)
+        public UserService(Repository<User> userRepository, Repository<Department> departmentRepository)
         {
             this.userRepository = userRepository;
-            observers = new List<IObserver<User>>();
+            this.departmentRepository = departmentRepository;
+            //observers = new List<IObserver<User>>();
         }
 
-        public IDisposable Subscribe(IObserver<User> observer)
-        {
-            if(!observers.Contains(observer))
-            {
-                observers.Add(observer);
-                observer.OnNext(lastInsertedUser);
-            }
-            return new Unsubscriber<User>(observers, observer);
-        }
+        //public IDisposable Subscribe(IObserver<User> observer)
+        //{
+        //    if(!observers.Contains(observer))
+        //    {
+        //        observers.Add(observer);
+        //        observer.OnNext(lastInsertedUser);
+        //    }
+        //    return new Unsubscriber<User>(observers, observer);
+        //}
 
         public IEnumerable<User> GetUsers()
         {
@@ -46,8 +48,8 @@ namespace GestionFlux.Service.Services
         public void InsertUser(User user)
         {
             userRepository.Insert(user);
-            lastInsertedUser = user;
-            DispatchUserInsert();
+            //lastInsertedUser = user;
+            //DispatchUserInsert();
         }
         public void UpdateUser(User user)
         {
@@ -61,15 +63,20 @@ namespace GestionFlux.Service.Services
             userRepository.SaveChanges();
         }
 
-        private void DispatchUserInsert()
+        public IEnumerable<Department> GetDepartments()
         {
-            if (observers != null)
-            {
-                System.Diagnostics.Debug.WriteLine("Dispatching...");
-                foreach (var observer in observers) observer.OnNext(lastInsertedUser);
-            }
-            else System.Diagnostics.Debug.WriteLine("No observers...");
+            return departmentRepository.GetAll();
         }
+
+        //private void DispatchUserInsert()
+        //{
+        //    if (observers != null)
+        //    {
+        //        System.Diagnostics.Debug.WriteLine("Dispatching...");
+        //        foreach (var observer in observers) observer.OnNext(lastInsertedUser);
+        //    }
+        //    else System.Diagnostics.Debug.WriteLine("No observers...");
+        //}
     }
 
     internal class Unsubscriber<User> : IDisposable

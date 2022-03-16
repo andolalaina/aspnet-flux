@@ -20,7 +20,7 @@ namespace GestionFlux.Controllers
         {
             this.userService = (UserService)userService;
             masterAgent = new Master();
-            masterAgent.Subscribe(this.userService);
+            //masterAgent.Subscribe(this.userService);
         }
         [HttpGet]
         public ActionResult Index()

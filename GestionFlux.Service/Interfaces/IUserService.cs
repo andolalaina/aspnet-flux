@@ -10,6 +10,7 @@ namespace GestionFlux.Service.Interfaces
     public interface IUserService
     {
         IEnumerable<User> GetUsers();
+        IEnumerable<Department> GetDepartments();
         User GetUser(int id);
         void InsertUser(User user);
         void UpdateUser(User user);

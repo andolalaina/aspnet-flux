@@ -23,6 +23,5 @@ namespace GestionFlux.Repository
         public DbSet<Response> Responses { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public System.Data.Entity.DbSet<GestionFlux.ViewModels.UserViewModel> UserViewModels { get; set; }
     }
 }

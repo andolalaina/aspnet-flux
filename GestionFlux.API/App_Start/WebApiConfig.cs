@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Intersoft.Crosslight.Containers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -7,6 +8,7 @@ namespace GestionFlux.API
 {
     public static class WebApiConfig
     {
+
         public static void Register(HttpConfiguration config)
         {
             // Configuration et services de l'API Web
