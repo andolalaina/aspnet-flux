@@ -10,6 +10,9 @@ namespace GestionFlux.Repository
 {
     public class FluxDbContext : DbContext
     {
+        public FluxDbContext() : base("GestionFluxDb")
+        {
+        }
         public DbSet<BlackBoard> BlackBoards { get; set; }
         public DbSet<ConsumerReport> ConsumerReports { get; set; }
         public DbSet<Department> Departments { get; set; }
