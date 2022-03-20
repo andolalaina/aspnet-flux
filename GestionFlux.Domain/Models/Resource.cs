@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Domain.Models
 {
-    public class Equipment : BaseEntity, IStockable
+    public class Resource : BaseEntity, IStockable
     {
         public string Name { get; set; }
-        public int Usability { get; set; }
         public string Ref { get; set; }
         public int InStock { get; set; }
     }

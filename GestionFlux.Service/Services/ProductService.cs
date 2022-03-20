@@ -11,12 +11,10 @@ namespace GestionFlux.Service.Services
     class ProductService
     {
         Repository<Product> productRepository;
-        Repository<ProductProfile> productProfileRepository;
 
-        ProductService(Repository<Product> productRepository, Repository<ProductProfile> productProfileRepository)
+        ProductService(Repository<Product> productRepository)
         {
             this.productRepository = productRepository;
-            this.productProfileRepository = productProfileRepository;
         }
 
         IEnumerable<Product> GetProducts()
@@ -36,27 +34,6 @@ namespace GestionFlux.Service.Services
 
         }
         void DeleteProduct(int id)
-        {
-
-        }
-
-        IEnumerable<ProductProfile> GetProductProfiles()
-        {
-            return productProfileRepository.GetAll();
-        }
-        ProductProfile GetProductProfile(int id)
-        {
-            return productProfileRepository.Get(id);
-        }
-        void InsertProductProfile(ProductProfile product)
-        {
-
-        }
-        void UpdateProductProfile(ProductProfile product)
-        {
-
-        }
-        void DeleteProductProfile(int id)
         {
 
         }

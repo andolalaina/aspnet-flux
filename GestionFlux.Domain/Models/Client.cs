@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Domain.Models
 {
-    public class ConsumerReport : BaseEntity
+    public class Client : BaseEntity
     {
-        public DateTime ReportDate { get; set; }
-        public Product PreferredProduct { get; set; }
-
+        public string Locality { get; set; }
+        public int Age { get; set; }
     }
 }

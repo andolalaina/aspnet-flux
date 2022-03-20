@@ -11,11 +11,9 @@ namespace GestionFlux.API.ViewModels
     {
         [HiddenInput]
         public Int64 Id { get; set; }
-        [Display(Name = "Nom")]
-        public string Name { get; set; }
-        [Display(Name = "Email")]
-        public string Email { get; set; }
-        [Display(Name = "Département")]
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Matricule { get; set; }
         public string Department { get; set; }
     }
 }

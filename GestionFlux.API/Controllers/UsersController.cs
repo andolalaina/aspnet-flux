@@ -36,9 +36,10 @@ namespace GestionFlux.API.Controllers
         {
             User userEntity = new User
             {
-                Name = model.Name,
-                Email = model.Email,
-                department = new Department
+                Username = model.Username,
+                Password = model.Password.GetHashCode(),
+                Matricule = model.Matricule,
+                Department = new Department
                 {
                     Name = model.Department
                 }

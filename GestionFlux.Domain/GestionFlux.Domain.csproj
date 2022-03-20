@@ -42,14 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IConcurrent.cs" />
     <Compile Include="Interfaces\IMessage.cs" />
+    <Compile Include="Interfaces\IStockable.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\BlackBoard.cs" />
-    <Compile Include="Models\ConsumerReport.cs" />
+    <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Equipment.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Resource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Purchase.cs" />
     <Compile Include="Models\Request.cs" />

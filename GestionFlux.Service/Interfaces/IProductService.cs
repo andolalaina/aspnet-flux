@@ -14,12 +14,5 @@ namespace GestionFlux.Service.Interfaces
         void InsertProduct(Product product);
         void UpdateProduct(Product product);
         void DeleteProduct(int id);
-
-        IEnumerable<ProductProfile> GetProductProfiles();
-        ProductProfile GetProductProfile(int id);
-        void InsertProductProfile(ProductProfile product);
-        void UpdateProductProfile(ProductProfile product);
-        void DeleteProductProfile(int id);
-
     }
 }
