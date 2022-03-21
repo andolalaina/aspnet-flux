@@ -15,5 +15,6 @@ namespace GestionFlux.Service.Interfaces
         void InsertUser(User user);
         void UpdateUser(User user);
         void DeleteUser(int id);
+        User Authenticate(string username, string password);
     }
 }

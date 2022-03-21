@@ -49,7 +49,17 @@ namespace GestionFlux.API.Controllers
             {
                 return BadRequest();
             }
-            return Ok(model);
+            return Ok(userEntity);
+        }
+
+        [HttpPost]
+        [Route("api/users/authenticate")]
+        public IHttpActionResult Authenticate([FromBody] UserAuthenticationViewModel credential)
+        {
+            User authenticatedUser = userService.Authenticate(credential.Username, credential.Password);
+            System.Diagnostics.Debug.WriteLine(authenticatedUser);
+            if (authenticatedUser == null) return BadRequest("Aucun utilisateur associé");
+            return Ok(authenticatedUser);
         }
     }
 }

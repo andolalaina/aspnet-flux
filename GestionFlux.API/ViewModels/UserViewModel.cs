@@ -16,4 +16,10 @@ namespace GestionFlux.API.ViewModels
         public string Matricule { get; set; }
         public string Department { get; set; }
     }
+
+    public class UserAuthenticationViewModel
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
 }

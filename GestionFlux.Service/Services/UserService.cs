@@ -47,6 +47,7 @@ namespace GestionFlux.Service.Services
 
         public void InsertUser(User user)
         {
+            user.Password = user.Password.GetHashCode();
             userRepository.Insert(user);
             //lastInsertedUser = user;
             //DispatchUserInsert();
@@ -61,6 +62,19 @@ namespace GestionFlux.Service.Services
             User user = GetUser(id);
             userRepository.Remove(user);
             userRepository.SaveChanges();
+        }
+
+        public User Authenticate(string username, string password)
+        {
+            IEnumerable<User> users = userRepository.GetAll().Where(x => x.Username == username && x.Password == password.GetHashCode());
+            try
+            {
+                return users.First();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public IEnumerable<Department> GetDepartments()
