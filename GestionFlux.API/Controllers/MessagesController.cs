@@ -12,10 +12,10 @@ namespace GestionFlux.API.Controllers
 {
     public class MessagesController : ApiController
     {
-        private IMessageService messageService;
-        private IUserService userService;
+        private IMessagingService messageService;
+        private IAuthService userService;
 
-        public MessagesController(IMessageService messageService, IUserService userService)
+        public MessagesController(IMessagingService messageService, IAuthService userService)
         {
             this.messageService = messageService;
             this.userService = userService;

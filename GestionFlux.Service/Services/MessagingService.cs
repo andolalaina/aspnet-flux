@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Service.Services
 {
-    public class MessageService : IMessageService
+    public class MessagingService : IMessagingService
     {
         private Repository<Request> requestRepository;
         private Repository<Notification> notificationRepository;
 
-        public MessageService(Repository<Request> requestRepo, Repository<Notification> notificationRepo)
+        public MessagingService(Repository<Request> requestRepo, Repository<Notification> notificationRepo)
         {
             this.requestRepository = requestRepo;
             this.notificationRepository = notificationRepo;

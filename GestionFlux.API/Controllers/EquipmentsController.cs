@@ -12,9 +12,9 @@ namespace GestionFlux.API.Controllers
 {
     public class EquipmentsController : ApiController
     {
-        private IEquipmentService equipmentService;
+        private ILogisticService equipmentService;
 
-        public EquipmentsController(IEquipmentService equipmentService)
+        public EquipmentsController(ILogisticService equipmentService)
         {
             this.equipmentService = equipmentService;
         }

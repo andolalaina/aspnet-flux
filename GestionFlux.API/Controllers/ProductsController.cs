@@ -8,19 +8,17 @@ using System.Web.Http;
 
 namespace GestionFlux.API.Controllers
 {
-    public class DepartmentsController : ApiController
+    public class ProductsController : ApiController
     {
-        private IAuthService userService;
-
-        public DepartmentsController(IAuthService userService)
+        private IMarketingService marketingService;
+        public ProductsController(IMarketingService marketingService)
         {
-            this.userService = userService;
+            this.marketingService = marketingService;
         }
-
         [HttpGet]
         public IHttpActionResult Get()
         {
-            return Ok(userService.GetDepartments());
+            return Ok(marketingService.GetProducts());
         }
     }
 }

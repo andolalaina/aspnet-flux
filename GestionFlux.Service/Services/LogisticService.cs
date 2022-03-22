@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Service.Services
 {
-    public class EquipmentService : IEquipmentService
+    public class LogisticService : ILogisticService
     {
         private Repository<Equipment> equipmentRepository;
-        public EquipmentService(Repository<Equipment> equipmentRepo)
+        public LogisticService(Repository<Equipment> equipmentRepo)
         {
             this.equipmentRepository = equipmentRepo;
         }

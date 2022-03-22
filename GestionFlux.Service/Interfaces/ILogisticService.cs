@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Service.Interfaces
 {
-    public interface IEquipmentService
+    public interface ILogisticService
     {
         IEnumerable<Equipment> GetEquipments();
         void AddEquipment(Equipment equipment);

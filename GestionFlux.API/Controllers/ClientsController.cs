@@ -1,4 +1,5 @@
 ﻿using GestionFlux.Service.Interfaces;
+using GestionFlux.Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +9,17 @@ using System.Web.Http;
 
 namespace GestionFlux.API.Controllers
 {
-    public class DepartmentsController : ApiController
+    public class ClientsController : ApiController
     {
-        private IAuthService userService;
-
-        public DepartmentsController(IAuthService userService)
+        private IMarketingService marketingService;
+        public ClientsController(IMarketingService marketingService)
         {
-            this.userService = userService;
+            this.marketingService = marketingService;
         }
-
         [HttpGet]
         public IHttpActionResult Get()
         {
-            return Ok(userService.GetDepartments());
+            return Ok(marketingService.GetClients());
         }
     }
 }

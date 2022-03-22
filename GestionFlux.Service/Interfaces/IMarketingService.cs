@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Service.Interfaces
 {
-    interface IProductService
+    public interface IMarketingService
     {
         IEnumerable<Product> GetProducts();
+        IEnumerable<Client> GetClients();
         Product GetProduct(int id);
         void InsertProduct(Product product);
         void UpdateProduct(Product product);

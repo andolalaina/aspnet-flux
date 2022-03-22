@@ -10,5 +10,6 @@ namespace GestionFlux.Domain.Models
     {
         public string Locality { get; set; }
         public int Age { get; set; }
+        public string Sex { get; set; }
     }
 }

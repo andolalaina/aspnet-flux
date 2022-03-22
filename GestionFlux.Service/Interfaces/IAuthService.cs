@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Service.Interfaces
 {
-    public interface IUserService
+    public interface IAuthService
     {
         IEnumerable<User> GetUsers();
         IEnumerable<Department> GetDepartments();

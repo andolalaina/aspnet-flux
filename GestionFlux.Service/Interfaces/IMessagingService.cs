@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Service.Interfaces
 {
-    public interface IMessageService
+    public interface IMessagingService
     {
         IEnumerable<Request> GetRequests(int? senderId = 0, int? sentToId = 0);
         Request GetRequest(int id);

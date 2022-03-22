@@ -13,8 +13,8 @@ namespace GestionFlux.API.Controllers
 {
     public class UsersController : ApiController
     {
-        private IUserService userService;
-        public UsersController(IUserService userService)
+        private IAuthService userService;
+        public UsersController(IAuthService userService)
         {
             this.userService = userService;
         }

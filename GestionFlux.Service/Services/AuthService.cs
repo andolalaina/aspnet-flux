@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Service.Services
 {
-   public class UserService : IUserService
+   public class AuthService : IAuthService
     {
         private Repository<User> userRepository;
         private Repository<Department> departmentRepository;
         //private List<IObserver<User>> observers;
         //private User lastInsertedUser;
 
-        public UserService(Repository<User> userRepository, Repository<Department> departmentRepository)
+        public AuthService(Repository<User> userRepository, Repository<Department> departmentRepository)
         {
             this.userRepository = userRepository;
             this.departmentRepository = departmentRepository;
