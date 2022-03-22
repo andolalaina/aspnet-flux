@@ -12,16 +12,12 @@ namespace GestionFlux.API.ViewModels
         [HiddenInput]
         public Int64 Id { get; set; }
 
-        [Display(Name = "Sender")]
         public int SenderId { get; set; }
 
-        [Display(Name = "SentTo")]
         public int SentToId { get; set; }
 
-        [Display(Name = "Description")]
         public string Description { get; set; }
 
-        [Display(Name = "SendDate")]
         public DateTime SendDate { get; set; }
     }
 }

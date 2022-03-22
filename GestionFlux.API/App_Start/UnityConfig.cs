@@ -23,6 +23,7 @@ namespace GestionFlux.API
 
             container.RegisterType<IUserService, UserService>();
             container.RegisterType<IMessageService, MessageService>();
+            container.RegisterType<IEquipmentService, EquipmentService>();
             //container.RegisterType<UsersController>(new InjectionConstructor(typeof(IUserService)));
 
             container.RegisterInstance(typeof (HttpConfiguration), GlobalConfiguration.Configuration);
