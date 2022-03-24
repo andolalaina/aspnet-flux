@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFlux.Service", "Gest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFlux.API", "GestionFlux.API\GestionFlux.API.csproj", "{B6283DAC-3ADE-46A6-8F4B-AD8D92932A37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFlux.Core", "GestionFlux.Core\GestionFlux.Core.csproj", "{6885A7F9-0506-414D-8E20-364B1A3F0C1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,12 +47,16 @@ Global
 		{B6283DAC-3ADE-46A6-8F4B-AD8D92932A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6283DAC-3ADE-46A6-8F4B-AD8D92932A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6283DAC-3ADE-46A6-8F4B-AD8D92932A37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6885A7F9-0506-414D-8E20-364B1A3F0C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6885A7F9-0506-414D-8E20-364B1A3F0C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6885A7F9-0506-414D-8E20-364B1A3F0C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6885A7F9-0506-414D-8E20-364B1A3F0C1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E9F619B6-BE5D-477C-A30F-429C3FE7BECB}
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
+		SolutionGuid = {E9F619B6-BE5D-477C-A30F-429C3FE7BECB}
 	EndGlobalSection
 EndGlobal

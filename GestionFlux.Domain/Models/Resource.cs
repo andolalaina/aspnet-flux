@@ -1,4 +1,5 @@
-﻿using GestionFlux.Domain.Interfaces;
+﻿using GestionFlux.Core.Domain;
+using GestionFlux.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

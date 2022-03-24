@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionFlux.Domain.Models
+namespace GestionFlux.Core.Domain
 {
     public class BaseEntity
     {

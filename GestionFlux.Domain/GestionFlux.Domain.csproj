@@ -45,7 +45,6 @@
     <Compile Include="Interfaces\IConcurrent.cs" />
     <Compile Include="Interfaces\IMessage.cs" />
     <Compile Include="Interfaces\IStockable.cs" />
-    <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\BlackBoard.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Department.cs" />
@@ -58,6 +57,12 @@
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GestionFlux.Core\GestionFlux.Core.csproj">
+      <Project>{6885a7f9-0506-414d-8e20-364b1a3f0c1a}</Project>
+      <Name>GestionFlux.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
