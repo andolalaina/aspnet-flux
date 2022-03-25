@@ -2,6 +2,7 @@
 using GestionFlux.Core.Service;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +10,13 @@ using System.Web.Http;
 
 namespace GestionFlux.Core.API
 {
-    public class GenericController<TService, TEntity> : ApiController 
-        where TService : IService<TEntity>
+    public abstract class GenericController<TEntity, TContext> :
+        ApiController, IController<TEntity, TContext>
         where TEntity : BaseEntity
+        where TContext : DbContext
     {
-        protected TService _service;
-        public GenericController(TService service)
+        protected IService<TEntity, TContext> _service;
+        public GenericController(IService<TEntity, TContext> service)
         {
             _service = service;
         }
@@ -32,23 +34,23 @@ namespace GestionFlux.Core.API
         }
 
         [HttpPost]
-        public IHttpActionResult Insert(TEntity entity)
+        public IHttpActionResult Insert([FromBody] TEntity entity)
         {
             _service.InsertOne(entity);
             return Ok(entity);
         }
 
-        [HttpPatch]
-        public IHttpActionResult update(TEntity entity)
+        [HttpPut]
+        public IHttpActionResult Update(int id, [FromBody] TEntity entity)
         {
-            _service.UpdateOne(entity);
+            _service.UpdateOne(id, entity);
             return Ok(entity);
         }
 
         [HttpDelete]
-        public IHttpActionResult delete(TEntity entity)
+        public IHttpActionResult Delete(int id)
         {
-            _service.DeleteOne(entity);
+            _service.DeleteOne(id);
             return Ok();
         }
     }

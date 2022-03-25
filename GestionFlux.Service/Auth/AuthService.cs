@@ -50,15 +50,14 @@ namespace GestionFlux.Service.Auth
             //lastInsertedUser = user;
             //DispatchUserInsert();
         }
-        public void UpdateUser(User user)
+        public void UpdateUser(int id, User user)
         {
-            _userRepository.Update(user);
+            _userRepository.Update(id, user);
         }
 
         public void DeleteUser(int id)
         {
-            User user = GetUser(id);
-            _userRepository.Delete(user);
+            _userRepository.Delete(id);
             _userRepository.SaveChanges();
         }
 

@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Core.Service
 {
-    public class GenericService<TEntity> : IService<TEntity>
+    public class GenericService<TEntity, TContext> : IService<TEntity, TContext>
         where TEntity : BaseEntity
+        where TContext : DbContext
     {
-        protected GenericRepository<TEntity, DbContext> _repository;
+        protected IRepository<TEntity, TContext> _repository;
 
-        public GenericService(GenericRepository<TEntity, DbContext> genericRepository)
+        public GenericService(IRepository<TEntity, TContext> repository)
         {
-            _repository = genericRepository;
+            _repository = repository;
         }
         public IEnumerable<TEntity> GetAll()
         {
@@ -33,14 +34,14 @@ namespace GestionFlux.Core.Service
             _repository.Insert(entity);
         }
 
-        public void UpdateOne(TEntity entity)
+        public void UpdateOne(int id, TEntity entity)
         {
-            _repository.Update(entity);
+            _repository.Update(id, entity);
         }
 
-        public void DeleteOne(TEntity entity)
+        public void DeleteOne(int id)
         {
-            _repository.Delete(entity);
+            _repository.Delete(id);
         }
 
     }

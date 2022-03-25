@@ -13,7 +13,7 @@ namespace GestionFlux.Service.Auth
         IEnumerable<Department> GetDepartments();
         User GetUser(int id);
         void InsertUser(User user);
-        void UpdateUser(User user);
+        void UpdateUser(int id, User user);
         void DeleteUser(int id);
         User Authenticate(string username, string password);
     }

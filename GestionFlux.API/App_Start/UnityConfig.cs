@@ -7,6 +7,10 @@ using System.Web.Http;
 using System.Web.Mvc;
 using Unity;
 using Unity.Injection;
+using GestionFlux.Core.Service;
+using GestionFlux.Repository;
+using GestionFlux.Domain.Models;
+using GestionFlux.Core.Repository;
 
 namespace GestionFlux.API
 {
@@ -27,6 +31,9 @@ namespace GestionFlux.API
             container.RegisterType<IMessagingService, MessagingService>();
             container.RegisterType<ILogisticService, LogisticService>();
             container.RegisterType<IMarketingService, MarketingService>();
+
+            container.RegisterType<IService<Resource, FluxDbContext>, GenericService<Resource, FluxDbContext>>();
+            container.RegisterType<IRepository<Resource, FluxDbContext>, BaseRepository<Resource, FluxDbContext>>();
             //container.RegisterType<UsersController>(new InjectionConstructor(typeof(IUserService)));
 
             container.RegisterInstance(typeof (HttpConfiguration), GlobalConfiguration.Configuration);

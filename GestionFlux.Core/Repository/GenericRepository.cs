@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Core.Repository
 {
-    public class GenericRepository<TEntity, TContext> : IRepository<TEntity> 
+    public class GenericRepository<TEntity, TContext> : IRepository<TEntity, TContext> 
         where TEntity : BaseEntity
         where TContext : DbContext
     {
@@ -39,23 +39,23 @@ namespace GestionFlux.Core.Repository
             _context.SaveChanges();
         }
 
-        public void Update(TEntity entity)
+        public void Update(int id, TEntity entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("entity");
-            }
+            TEntity updated = _entities.First(s => s.Id == id);
+            foreach (var x in typeof(TEntity).GetProperties())
+                if (x.Name != "Id")
+                    x.SetValue(updated, x.GetValue(entity));
             _context.SaveChanges();
         }
 
-        public void Delete(TEntity entity)
+        public void Delete(int id)
         {
-            if (entity == null)
+            TEntity entity = _entities.SingleOrDefault(x => x.Id == id);
+            if (entity != null)
             {
-                throw new ArgumentNullException("entity");
+                _entities.Remove(entity);
+                _context.SaveChanges();
             }
-            _entities.Remove(entity);
-            _context.SaveChanges();
         }
 
         public void SaveChanges()
