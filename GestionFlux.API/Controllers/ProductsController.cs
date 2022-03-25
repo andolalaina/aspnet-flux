@@ -1,4 +1,5 @@
-﻿using GestionFlux.Service.Marketing;
+﻿using GestionFlux.Domain.Models;
+using GestionFlux.Service.Marketing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,12 @@ namespace GestionFlux.API.Controllers
         public IHttpActionResult Get()
         {
             return Ok(marketingService.GetProducts());
+        }
+        [HttpPut]
+        public IHttpActionResult Update([FromBody] Product p)
+        {
+            marketingService.UpdateProduct(p);
+            return Ok();
         }
     }
 }

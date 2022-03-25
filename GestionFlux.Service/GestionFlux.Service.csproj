@@ -63,6 +63,10 @@
       <Project>{1DC5E66E-3E65-4984-B195-62B1F48135DF}</Project>
       <Name>GestionFlux.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GestionFlux.SMA\GestionFlux.SMA.csproj">
+      <Project>{87ec7994-20fa-42ac-9f7e-df36e9a57858}</Project>
+      <Name>GestionFlux.SMA</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
