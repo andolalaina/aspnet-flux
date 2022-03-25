@@ -12,9 +12,9 @@ namespace GestionFlux.Core.Service
     public class GenericService<TEntity> : IService<TEntity>
         where TEntity : BaseEntity
     {
-        protected GenericRepository<TEntity> _repository;
+        protected GenericRepository<TEntity, DbContext> _repository;
 
-        public GenericService(GenericRepository<TEntity> genericRepository)
+        public GenericService(GenericRepository<TEntity, DbContext> genericRepository)
         {
             _repository = genericRepository;
         }

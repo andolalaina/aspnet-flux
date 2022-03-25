@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseRepository.cs" />
     <Compile Include="FluxDbContext.cs" />
     <Compile Include="Migrations\202203131821417_init.cs" />
     <Compile Include="Migrations\202203131821417_init.designer.cs">

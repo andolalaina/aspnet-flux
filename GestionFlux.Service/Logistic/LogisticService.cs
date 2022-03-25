@@ -1,6 +1,7 @@
 ﻿using GestionFlux.Core.Repository;
 using GestionFlux.Core.Service;
 using GestionFlux.Domain.Models;
+using GestionFlux.Repository;
 using GestionFlux.Service.Logistic;
 using System.Collections.Generic;
 
@@ -8,8 +9,8 @@ namespace GestionFlux.Service.Logistic
 {
     public class LogisticService : ILogisticService
     {
-        private GenericRepository<Equipment> _equipmentRepository;
-        public LogisticService(GenericRepository<Equipment> equipmentRepo)
+        private BaseRepository<Equipment, FluxDbContext> _equipmentRepository;
+        public LogisticService(BaseRepository<Equipment, FluxDbContext> equipmentRepo)
         {
             this._equipmentRepository = equipmentRepo;
         }

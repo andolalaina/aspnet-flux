@@ -1,6 +1,7 @@
 ﻿using GestionFlux.Core.Repository;
 using GestionFlux.Core.Service;
 using GestionFlux.Domain.Models;
+using GestionFlux.Repository;
 using GestionFlux.Service.Marketing;
 using System.Collections.Generic;
 
@@ -8,10 +9,10 @@ namespace GestionFlux.Service.Marketing
 {
     public class MarketingService : IMarketingService
     {
-        GenericRepository<Product> _productRepository;
-        GenericRepository<Client> _clientRepository;
+        BaseRepository<Product, FluxDbContext> _productRepository;
+        BaseRepository<Client, FluxDbContext> _clientRepository;
 
-        public MarketingService(GenericRepository<Product> productRepository, GenericRepository<Client> clientRepository)
+        public MarketingService(BaseRepository<Product, FluxDbContext> productRepository, BaseRepository<Client, FluxDbContext> clientRepository)
         {
             _productRepository = productRepository;
             _clientRepository = clientRepository;
@@ -41,6 +42,6 @@ namespace GestionFlux.Service.Marketing
         {
 
         }
-        
+
     }
 }

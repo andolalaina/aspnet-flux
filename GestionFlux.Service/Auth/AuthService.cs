@@ -11,12 +11,12 @@ namespace GestionFlux.Service.Auth
 {
     public class AuthService : IAuthService
     {
-        private GenericRepository<User> _userRepository;
-        private GenericRepository<Department> _departmentRepository;
+        private BaseRepository<User, FluxDbContext> _userRepository;
+        private BaseRepository<Department, FluxDbContext> _departmentRepository;
         //private List<IObserver<User>> observers;
         //private User lastInsertedUser;
 
-        public AuthService(GenericRepository<User> userRepository, GenericRepository<Department> departmentRepository)
+        public AuthService(BaseRepository<User, FluxDbContext> userRepository, BaseRepository<Department, FluxDbContext> departmentRepository)
         {
             _userRepository = userRepository;
             _departmentRepository = departmentRepository;

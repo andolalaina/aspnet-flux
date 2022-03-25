@@ -8,15 +8,16 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Core.Repository
 {
-    public class GenericRepository<TEntity> : 
-        IRepository<TEntity> where TEntity : BaseEntity
+    public class GenericRepository<TEntity, TContext> : IRepository<TEntity> 
+        where TEntity : BaseEntity
+        where TContext : DbContext
     {
-        protected readonly DbContext _context;
+        protected readonly TContext _context;
         protected DbSet<TEntity> _entities;
 
-        public GenericRepository(DbContext context)
+        public GenericRepository(TContext context)
         {
-            this._context = context;
+            _context = context;
             _entities = _context.Set<TEntity>();
         }
         public IEnumerable<TEntity> GetAll()

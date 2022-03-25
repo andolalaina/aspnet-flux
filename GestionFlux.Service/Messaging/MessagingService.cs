@@ -2,6 +2,7 @@
 using GestionFlux.Core.Service;
 using GestionFlux.Domain.Interfaces;
 using GestionFlux.Domain.Models;
+using GestionFlux.Repository;
 using GestionFlux.Service.Messaging;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,10 @@ namespace GestionFlux.Service.Messaging
 {
     public class MessagingService : IMessagingService
     {
-        private GenericRepository<Request> _requestRepository;
-        private GenericRepository<Notification> _notificationRepository;
+        private BaseRepository<Request, FluxDbContext> _requestRepository;
+        private BaseRepository<Notification, FluxDbContext> _notificationRepository;
 
-        public MessagingService(GenericRepository<Request> requestRepo, GenericRepository<Notification> notificationRepo)
+        public MessagingService(BaseRepository<Request, FluxDbContext> requestRepo, BaseRepository<Notification, FluxDbContext> notificationRepo)
         {
             _requestRepository = requestRepo;
             _notificationRepository = notificationRepo;
