@@ -9,25 +9,24 @@ using System.Threading.Tasks;
 namespace GestionFlux.Core.Repository
 {
     public class GenericRepository<TEntity> : 
-        IGenericRepository<TEntity> where TEntity : BaseEntity
+        IRepository<TEntity> where TEntity : BaseEntity
     {
-        private readonly DbContext context;
-        private DbSet<TEntity> entities;
-        string errorMessage = string.Empty;
+        protected readonly DbContext _context;
+        protected DbSet<TEntity> _entities;
 
         public GenericRepository(DbContext context)
         {
-            this.context = context;
-            entities = context.Set<TEntity>();
+            this._context = context;
+            _entities = _context.Set<TEntity>();
         }
         public IEnumerable<TEntity> GetAll()
         {
-            return entities.AsEnumerable();
+            return _entities.AsEnumerable();
         }
 
         public TEntity Get(int id)
         {
-            return entities.SingleOrDefault(s => s.Id == id);
+            return _entities.SingleOrDefault(s => s.Id == id);
         }
         public void Insert(TEntity entity)
         {
@@ -35,8 +34,8 @@ namespace GestionFlux.Core.Repository
             {
                 throw new ArgumentNullException("entity");
             }
-            entities.Add(entity);
-            context.SaveChanges();
+            _entities.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Update(TEntity entity)
@@ -45,7 +44,7 @@ namespace GestionFlux.Core.Repository
             {
                 throw new ArgumentNullException("entity");
             }
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         public void Delete(TEntity entity)
@@ -54,13 +53,13 @@ namespace GestionFlux.Core.Repository
             {
                 throw new ArgumentNullException("entity");
             }
-            entities.Remove(entity);
-            context.SaveChanges();
+            _entities.Remove(entity);
+            _context.SaveChanges();
         }
 
         public void SaveChanges()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
     }
 }

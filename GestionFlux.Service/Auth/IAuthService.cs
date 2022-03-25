@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionFlux.Service.Interfaces
+namespace GestionFlux.Service.Auth
 {
     public interface IAuthService
     {

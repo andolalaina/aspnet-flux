@@ -1,6 +1,7 @@
 ﻿using GestionFlux.API.ViewModels;
 using GestionFlux.Domain.Models;
-using GestionFlux.Service.Interfaces;
+using GestionFlux.Service.Messaging;
+using GestionFlux.Service.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;

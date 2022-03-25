@@ -1,6 +1,8 @@
 using GestionFlux.API.Controllers;
-using GestionFlux.Service.Interfaces;
-using GestionFlux.Service.Services;
+using GestionFlux.Service.Auth;
+using GestionFlux.Service.Messaging;
+using GestionFlux.Service.Marketing;
+using GestionFlux.Service.Logistic;
 using System.Web.Http;
 using System.Web.Mvc;
 using Unity;

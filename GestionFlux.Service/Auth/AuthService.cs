@@ -1,27 +1,25 @@
-﻿using GestionFlux.Domain.Models;
+﻿using GestionFlux.Core.Repository;
+using GestionFlux.Domain.Models;
 using GestionFlux.Repository;
-using GestionFlux.Repository.Interfaces;
-using GestionFlux.Service.Interfaces;
-using GestionFlux.Service.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestionFlux.Service.Services
+namespace GestionFlux.Service.Auth
 {
-   public class AuthService : IAuthService
+    public class AuthService : IAuthService
     {
-        private Repository<User> userRepository;
-        private Repository<Department> departmentRepository;
+        private GenericRepository<User> _userRepository;
+        private GenericRepository<Department> _departmentRepository;
         //private List<IObserver<User>> observers;
         //private User lastInsertedUser;
 
-        public AuthService(Repository<User> userRepository, Repository<Department> departmentRepository)
+        public AuthService(GenericRepository<User> userRepository, GenericRepository<Department> departmentRepository)
         {
-            this.userRepository = userRepository;
-            this.departmentRepository = departmentRepository;
+            _userRepository = userRepository;
+            _departmentRepository = departmentRepository;
             //observers = new List<IObserver<User>>();
         }
 
@@ -37,36 +35,36 @@ namespace GestionFlux.Service.Services
 
         public IEnumerable<User> GetUsers()
         {
-            return userRepository.GetAll();
+            return _userRepository.GetAll();
         }
 
         public User GetUser(int id)
         {
-            return userRepository.Get(id);
+            return _userRepository.Get(id);
         }
 
         public void InsertUser(User user)
         {
             user.Password = user.Password.GetHashCode();
-            userRepository.Insert(user);
+            _userRepository.Insert(user);
             //lastInsertedUser = user;
             //DispatchUserInsert();
         }
         public void UpdateUser(User user)
         {
-            userRepository.Update(user);
+            _userRepository.Update(user);
         }
 
         public void DeleteUser(int id)
         {
             User user = GetUser(id);
-            userRepository.Remove(user);
-            userRepository.SaveChanges();
+            _userRepository.Delete(user);
+            _userRepository.SaveChanges();
         }
 
         public User Authenticate(string username, string password)
         {
-            IEnumerable<User> users = userRepository.GetAll().Where(x => x.Username == username && x.Password == password.GetHashCode());
+            IEnumerable<User> users = _userRepository.GetAll().Where(x => x.Username == username && x.Password == password.GetHashCode());
             try
             {
                 return users.First();
@@ -79,7 +77,7 @@ namespace GestionFlux.Service.Services
 
         public IEnumerable<Department> GetDepartments()
         {
-            return departmentRepository.GetAll();
+            return _departmentRepository.GetAll();
         }
 
         //private void DispatchUserInsert()

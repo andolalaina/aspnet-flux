@@ -1,4 +1,4 @@
-﻿using GestionFlux.Service.Interfaces;
+﻿using GestionFlux.Service.Logistic;
 using GestionFlux.API.ViewModels;
 using System;
 using System.Collections.Generic;

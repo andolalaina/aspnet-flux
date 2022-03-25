@@ -293,6 +293,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GestionFlux.Core\GestionFlux.Core.csproj">
+      <Project>{6885a7f9-0506-414d-8e20-364b1a3f0c1a}</Project>
+      <Name>GestionFlux.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GestionFlux.Domain\GestionFlux.Domain.csproj">
       <Project>{49F963B3-9528-4220-8600-3B4CABB80CED}</Project>
       <Name>GestionFlux.Domain</Name>

@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FluxDbContext.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Migrations\202203131821417_init.cs" />
     <Compile Include="Migrations\202203131821417_init.designer.cs">
       <DependentUpon>202203131821417_init.cs</DependentUpon>
@@ -67,13 +66,16 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GestionFlux.Core\GestionFlux.Core.csproj">
+      <Project>{6885a7f9-0506-414d-8e20-364b1a3f0c1a}</Project>
+      <Name>GestionFlux.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GestionFlux.Domain\GestionFlux.Domain.csproj">
       <Project>{49f963b3-9528-4220-8600-3b4cabb80ced}</Project>
       <Name>GestionFlux.Domain</Name>
@@ -89,6 +91,13 @@
     <EmbeddedResource Include="Migrations\202203221816427_seed.resx">
       <DependentUpon>202203221816427_seed.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Auth\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Logistic\" />
+    <Folder Include="Marketing\" />
+    <Folder Include="Messaging\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

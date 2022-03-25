@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestionFlux.Core.Repository
 {
-    public interface IGenericRepository<TEntity>
+    public interface IRepository<TEntity>
     {
         IEnumerable<TEntity> GetAll();
         TEntity Get(int id);

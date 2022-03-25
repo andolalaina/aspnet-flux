@@ -51,6 +51,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GestionFlux.Core\GestionFlux.Core.csproj">
+      <Project>{6885a7f9-0506-414d-8e20-364b1a3f0c1a}</Project>
+      <Name>GestionFlux.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GestionFlux.Domain\GestionFlux.Domain.csproj">
       <Project>{49f963b3-9528-4220-8600-3b4cabb80ced}</Project>
       <Name>GestionFlux.Domain</Name>
