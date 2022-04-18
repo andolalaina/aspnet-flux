@@ -27,5 +27,11 @@ namespace GestionFlux.API.Controllers
             marketingService.UpdateProduct(p);
             return Ok();
         }
+        [HttpDelete]
+        public IHttpActionResult Delete(int productId)
+        {
+            marketingService.DeleteProduct(productId);
+            return Ok();
+        }
     }
 }

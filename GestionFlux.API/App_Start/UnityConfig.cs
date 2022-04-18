@@ -10,6 +10,7 @@ using Unity.Injection;
 using GestionFlux.Core.Service;
 using GestionFlux.Repository;
 using GestionFlux.Domain.Models;
+using GestionFlux.Domain;
 using GestionFlux.Core.Repository;
 
 namespace GestionFlux.API

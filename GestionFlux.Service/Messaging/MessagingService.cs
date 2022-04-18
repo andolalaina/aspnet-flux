@@ -2,6 +2,7 @@
 using GestionFlux.Core.Service;
 using GestionFlux.Domain.Interfaces;
 using GestionFlux.Domain.Models;
+using GestionFlux.Domain;
 using GestionFlux.Repository;
 using GestionFlux.Service.Messaging;
 using System.Collections.Generic;

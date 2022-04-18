@@ -1,6 +1,7 @@
 ﻿using GestionFlux.Core.API;
 using GestionFlux.Core.Service;
 using GestionFlux.Domain.Models;
+using GestionFlux.Domain;
 using GestionFlux.Repository;
 using System;
 using System.Collections.Generic;

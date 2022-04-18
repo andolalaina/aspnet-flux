@@ -52,20 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
-    <Compile Include="FluxDbContext.cs" />
-    <Compile Include="Migrations\202203131821417_init.cs" />
-    <Compile Include="Migrations\202203131821417_init.designer.cs">
-      <DependentUpon>202203131821417_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203202005180_fix.cs" />
-    <Compile Include="Migrations\202203202005180_fix.designer.cs">
-      <DependentUpon>202203202005180_fix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203221816427_seed.cs" />
-    <Compile Include="Migrations\202203221816427_seed.designer.cs">
-      <DependentUpon>202203221816427_seed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,17 +67,6 @@
       <Project>{49f963b3-9528-4220-8600-3b4cabb80ced}</Project>
       <Name>GestionFlux.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202203131821417_init.resx">
-      <DependentUpon>202203131821417_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203202005180_fix.resx">
-      <DependentUpon>202203202005180_fix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203221816427_seed.resx">
-      <DependentUpon>202203221816427_seed.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Auth\" />

@@ -1,6 +1,7 @@
 ﻿using GestionFlux.Core.Repository;
 using GestionFlux.Core.Service;
 using GestionFlux.Domain.Models;
+using GestionFlux.Domain;
 using GestionFlux.Repository;
 using GestionFlux.SMA;
 using System;

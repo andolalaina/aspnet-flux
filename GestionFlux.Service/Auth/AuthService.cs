@@ -1,4 +1,5 @@
 ﻿using GestionFlux.Core.Repository;
+using GestionFlux.Domain;
 using GestionFlux.Domain.Models;
 using GestionFlux.Repository;
 using System;

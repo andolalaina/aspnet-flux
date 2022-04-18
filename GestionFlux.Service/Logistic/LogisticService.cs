@@ -2,6 +2,7 @@
 using GestionFlux.Core.Service;
 using GestionFlux.Domain.Models;
 using GestionFlux.Repository;
+using GestionFlux.Domain;
 using GestionFlux.Service.Logistic;
 using System.Collections.Generic;
 
