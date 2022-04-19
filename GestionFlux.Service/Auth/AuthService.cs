@@ -14,25 +14,12 @@ namespace GestionFlux.Service.Auth
     {
         private BaseRepository<User, FluxDbContext> _userRepository;
         private BaseRepository<Department, FluxDbContext> _departmentRepository;
-        //private List<IObserver<User>> observers;
-        //private User lastInsertedUser;
 
         public AuthService(BaseRepository<User, FluxDbContext> userRepository, BaseRepository<Department, FluxDbContext> departmentRepository)
         {
             _userRepository = userRepository;
             _departmentRepository = departmentRepository;
-            //observers = new List<IObserver<User>>();
         }
-
-        //public IDisposable Subscribe(IObserver<User> observer)
-        //{
-        //    if(!observers.Contains(observer))
-        //    {
-        //        observers.Add(observer);
-        //        observer.OnNext(lastInsertedUser);
-        //    }
-        //    return new Unsubscriber<User>(observers, observer);
-        //}
 
         public IEnumerable<User> GetUsers()
         {
@@ -48,8 +35,6 @@ namespace GestionFlux.Service.Auth
         {
             user.Password = user.Password.GetHashCode();
             _userRepository.Insert(user);
-            //lastInsertedUser = user;
-            //DispatchUserInsert();
         }
         public void UpdateUser(int id, User user)
         {
@@ -78,34 +63,6 @@ namespace GestionFlux.Service.Auth
         public IEnumerable<Department> GetDepartments()
         {
             return _departmentRepository.GetAll();
-        }
-
-        //private void DispatchUserInsert()
-        //{
-        //    if (observers != null)
-        //    {
-        //        System.Diagnostics.Debug.WriteLine("Dispatching...");
-        //        foreach (var observer in observers) observer.OnNext(lastInsertedUser);
-        //    }
-        //    else System.Diagnostics.Debug.WriteLine("No observers...");
-        //}
-    }
-
-    internal class Unsubscriber<User> : IDisposable
-    {
-        private List<IObserver<User>> _observers;
-        private IObserver<User> _observer;
-
-        internal Unsubscriber(List<IObserver<User>> observers, IObserver<User> observer)
-        {
-            this._observers = observers;
-            this._observer = observer;
-        }
-
-        public void Dispose()
-        {
-            if (_observers.Contains(_observer))
-                _observers.Remove(_observer);
         }
     }
 }
