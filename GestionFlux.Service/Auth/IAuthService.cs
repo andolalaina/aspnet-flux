@@ -9,12 +9,15 @@ namespace GestionFlux.Service.Auth
 {
     public interface IAuthService
     {
-        IEnumerable<User> GetUsers();
-        IEnumerable<Department> GetDepartments();
+        #region CRUD USER
         User GetUser(int id);
         void InsertUser(User user);
         void UpdateUser(int id, User user);
         void DeleteUser(int id);
-        User Authenticate(string username, string password);
+        #endregion
+        IEnumerable<User> GetUsers();
+        IEnumerable<Department> GetDepartments();
+        User Authenticate(AuthViewModels.UserLogin user);
+        User RegisterUser(AuthViewModels.UserRegister newUser);
     }
 }

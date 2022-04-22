@@ -12,51 +12,40 @@ namespace GestionFlux.API.Controllers
 {
     public class UsersController : ApiController
     {
-        private IAuthService userService;
-        public UsersController(IAuthService userService)
+        private IAuthService _authService;
+        public UsersController(IAuthService authService)
         {
-            this.userService = userService;
+            this._authService = authService;
         }
 
         [HttpGet]
         public IHttpActionResult Get()
         {
-            return Ok(userService.GetUsers());
+            return Ok(_authService.GetUsers());
         }
 
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
-            return Ok(userService.GetUser(id));
+            return Ok(_authService.GetUser(id));
         }
 
         [HttpPost]
-        public IHttpActionResult Create([FromBody] UserViewModel model)
+        public IHttpActionResult Register([FromBody] AuthViewModels.UserRegister model)
         {
-            User userEntity = new User
+            if (!(model.isValid()))
             {
-                Username = model.Username,
-                Password = model.Password.GetHashCode(),
-                Matricule = model.Matricule,
-                Department = new Department
-                {
-                    Name = model.Department
-                }
-            };
-            userService.InsertUser(userEntity);
-            if (!(userEntity.Id > 0))
-            {
-                return BadRequest();
+                return BadRequest("Le modèle n'est pas valide");
             }
+            User userEntity = _authService.RegisterUser(model);
             return Ok(userEntity);
         }
 
         [HttpPost]
         [Route("api/users/authenticate")]
-        public IHttpActionResult Authenticate([FromBody] UserAuthenticationViewModel credential)
+        public IHttpActionResult Authenticate([FromBody] AuthViewModels.UserLogin user)
         {
-            User authenticatedUser = userService.Authenticate(credential.Username, credential.Password);
-            System.Diagnostics.Debug.WriteLine(authenticatedUser);
+            User authenticatedUser = _authService.Authenticate(user);
             if (authenticatedUser == null) return BadRequest("Aucun utilisateur associé");
             return Ok(authenticatedUser);
         }

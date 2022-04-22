@@ -2,6 +2,8 @@
 using GestionFlux.Domain;
 using GestionFlux.Domain.Models;
 using GestionFlux.Repository;
+using GestionFlux.Repository.Department;
+using GestionFlux.Repository.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +14,16 @@ namespace GestionFlux.Service.Auth
 {
     public class AuthService : IAuthService
     {
-        private BaseRepository<User, FluxDbContext> _userRepository;
-        private BaseRepository<Department, FluxDbContext> _departmentRepository;
+        private IUserRepository<User, FluxDbContext> _userRepository;
+        private IDepartmentRepository<Department, FluxDbContext> _departmentRepository;
 
-        public AuthService(BaseRepository<User, FluxDbContext> userRepository, BaseRepository<Department, FluxDbContext> departmentRepository)
+        public AuthService(IUserRepository<User, FluxDbContext> userRepository, IDepartmentRepository<Department, FluxDbContext> departmentRepository)
         {
             _userRepository = userRepository;
             _departmentRepository = departmentRepository;
         }
 
-        public IEnumerable<User> GetUsers()
-        {
-            return _userRepository.GetAll();
-        }
-
+        #region CRUD USER
         public User GetUser(int id)
         {
             return _userRepository.Get(id);
@@ -46,10 +44,22 @@ namespace GestionFlux.Service.Auth
             _userRepository.Delete(id);
             _userRepository.SaveChanges();
         }
+        #endregion
 
-        public User Authenticate(string username, string password)
+        public IEnumerable<User> GetUsers()
         {
-            IEnumerable<User> users = _userRepository.GetAll().Where(x => x.Username == username && x.Password == password.GetHashCode());
+            return _userRepository.GetAll();
+        }
+        public IEnumerable<Department> GetDepartments()
+        {
+            return _departmentRepository.GetAll();
+        }
+        public User Authenticate(AuthViewModels.UserLogin user)
+        {
+            IEnumerable<User> users = _userRepository.GetAll().Where(
+                x => x.Username == user.Username &&
+                x.Password == user.Password.GetHashCode()
+            );
             try
             {
                 return users.First();
@@ -59,10 +69,19 @@ namespace GestionFlux.Service.Auth
                 return null;
             }
         }
-
-        public IEnumerable<Department> GetDepartments()
+    
+        public User RegisterUser(AuthViewModels.UserRegister incomingUser)
         {
-            return _departmentRepository.GetAll();
+            Department incomingUserDepartment = _departmentRepository.FindByNameOrCreate(incomingUser.Department);
+            User newUserInstance = new User
+            {
+                Username = incomingUser.Username,
+                Password = incomingUser.Password.GetHashCode(),
+                Matricule = incomingUser.Matricule,
+            };
+            _userRepository.Insert(newUserInstance);
+            _userRepository.SetDepartment(newUserInstance.Id, incomingUserDepartment.Id);
+            return newUserInstance;
         }
     }
 }
