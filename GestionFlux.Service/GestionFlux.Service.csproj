@@ -45,6 +45,9 @@
     <Compile Include="Messaging\IMessagingService.cs" />
     <Compile Include="Marketing\IMarketingService.cs" />
     <Compile Include="Auth\IAuthService.cs" />
+    <Compile Include="Production\IProductionService.cs" />
+    <Compile Include="Production\ProductionService.cs" />
+    <Compile Include="Production\ProductionViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Logistic\LogisticService.cs" />
     <Compile Include="Messaging\MessagingService.cs" />
