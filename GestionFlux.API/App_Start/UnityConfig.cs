@@ -14,6 +14,8 @@ using GestionFlux.Domain;
 using GestionFlux.Core.Repository;
 using GestionFlux.Repository.Department;
 using GestionFlux.Repository.User;
+using GestionFlux.Repository.Product;
+using GestionFlux.Service.Production;
 
 namespace GestionFlux.API
 {
@@ -34,9 +36,11 @@ namespace GestionFlux.API
             container.RegisterType<IMessagingService, MessagingService>();
             container.RegisterType<ILogisticService, LogisticService>();
             container.RegisterType<IMarketingService, MarketingService>();
+            container.RegisterType<IProductionService, ProductionService>();
 
             container.RegisterType<IService<Resource, FluxDbContext>, GenericService<Resource, FluxDbContext>>();
             container.RegisterType<IRepository<Resource, FluxDbContext>, BaseRepository<Resource, FluxDbContext>>();
+            container.RegisterType<IRepository<Equipment, FluxDbContext>, BaseRepository<Equipment, FluxDbContext>>();
 
 
             container.RegisterType<
@@ -46,6 +50,10 @@ namespace GestionFlux.API
             container.RegisterType<
                 IUserRepository<User, FluxDbContext>,
                 UserRepository<User, FluxDbContext>
+            >();
+            container.RegisterType<
+                IProductRepository<Product, FluxDbContext>,
+                ProductRepository<Product, FluxDbContext>
             >();
             //container.RegisterType<UsersController>(new InjectionConstructor(typeof(IUserService)));
 

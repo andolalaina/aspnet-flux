@@ -12,10 +12,24 @@ namespace GestionFlux.Service.Production
         {
             public string Name { get; set;}
             public int InStock { get; set;}
-            public string MaterialName { get; set;}
-            public string MaterialUsability { get; set;}
+            public ICollection<EquipmentDetail> equipments;
             public int Quantity { get; set;}
             public int QuantitySMA { get; set;}
+        }
+
+        public class EquipmentDetail
+        {
+            public string Name { get; set; }
+            public int Usability { get; set; }
+        }
+
+        public class ProductEquipmentUseDetail
+        {
+            public int ProductId { get; set; }
+            public int EquipmentId { get; set; }
+            public int UseDegradation { get; set; }
+            public int UseDuration { get; set; }
+
         }
     }
 }

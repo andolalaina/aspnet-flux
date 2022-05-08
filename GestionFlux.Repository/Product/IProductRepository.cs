@@ -10,10 +10,14 @@ namespace GestionFlux.Repository.Product
 {
     public interface IProductRepository<TEntity, TContext> : IRepository<TEntity, TContext>
     {
-        IEnumerable<Equipment> GetEquipments();
-        IEnumerable<Resource> GetResources();
-        void AddEquipmentUse();
-        void AddResourceUse();
+        IEnumerable<Equipment> GetEquipments(int productId);
+        IEnumerable<Resource> GetResources(int productId);
+        void AddEquipmentUse(int productId, int EquipmentId, int useDegradation, int useDuration);
+        void RemoveEquipmentUse(int productId, int EquipmentId);
+        IEnumerable<EquipmentUse> GetEquipmentUses(int productId);
+        void AddResourceUse(int productId, int resourceId, int quantity);
+        void RemoveResourceUse(int productId, int resourceId);
+        IEnumerable<ResourceUse> GetResourceUses(int productId);
 
     }
 }

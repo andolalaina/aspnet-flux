@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionFlux.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,9 @@ namespace GestionFlux.Service.Production
     public interface IProductionService
     {
         IEnumerable<ProductionViewModels.ProductionProcessDetail> GetProductionProcesses();
+        void AddProductEquipmentUse(int productId, int equipmentId, int useDegradation, int useDuration);
+        void RemoveProductEquipmentUse(int productId, int equipmentId);
+        IEnumerable<EquipmentUse> GetProductEquipmentUses(int productId);
         bool ReplaceMaterial(int ProductId);
         void SetProductionQuantity(int ProductId, int NewQuantity);
     }

@@ -31,6 +31,23 @@
                 new Client() { Id = 2, Age = 21, Locality = "Analamanga", Sex = "Femme"},
                 new Client() { Id = 3, Age = 25, Locality = "Analamanga", Sex = "Homme"}
                 );
+
+            context.Equipments.AddOrUpdate(x => x.Id,
+                new Equipment() { Id = 1, Name = "Four", Ref="F_01", InStock=100, Usability=63},
+                new Equipment() { Id = 2, Name = "Micro-ondes", Ref="M_01", InStock=100, Usability=63},
+                new Equipment() { Id = 3, Name = "Four professionnel", Ref="F_02", InStock=100, Usability=63},
+                new Equipment() { Id = 4, Name = "Chaudron", Ref="C_01", InStock=100, Usability=63}
+                );
+
+            context.EquipmentUses.AddOrUpdate(x => x.Id,
+                new EquipmentUse() { Id = 1, Equipment = context.Equipments.Find(1), Product = context.Products.Find(1), UseDegradation = 5, UseDuration = 15 },
+                new EquipmentUse() { Id = 2, Equipment = context.Equipments.Find(2), Product = context.Products.Find(1), UseDegradation = 5, UseDuration = 15 },
+                new EquipmentUse() { Id = 3, Equipment = context.Equipments.Find(3), Product = context.Products.Find(1), UseDegradation = 5, UseDuration = 15 },
+                new EquipmentUse() { Id = 4, Equipment = context.Equipments.Find(1), Product = context.Products.Find(2), UseDegradation = 5, UseDuration = 15 },
+                new EquipmentUse() { Id = 5, Equipment = context.Equipments.Find(1), Product = context.Products.Find(3), UseDegradation = 5, UseDuration = 15 },
+                new EquipmentUse() { Id = 6, Equipment = context.Equipments.Find(2), Product = context.Products.Find(2), UseDegradation = 5, UseDuration = 15 },
+                new EquipmentUse() { Id = 7, Equipment = context.Equipments.Find(3), Product = context.Products.Find(3), UseDegradation = 5, UseDuration = 15 }
+                );
         }
     }
 }
