@@ -14,5 +14,6 @@ namespace GestionFlux.Domain.Models
         public int Usability { get; set; }
         public string Ref { get; set; }
         public int InStock { get; set; }
+        public ICollection<EquipmentUse> EquipmentUses { get; set; }
     }
 }

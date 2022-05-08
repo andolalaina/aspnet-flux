@@ -67,6 +67,10 @@
     <Compile Include="Migrations\202203221816427_seed.Designer.cs">
       <DependentUpon>202203221816427_seed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205080638483_ResourceUse and EquipmentUse reverse reference.cs" />
+    <Compile Include="Migrations\202205080638483_ResourceUse and EquipmentUse reverse reference.designer.cs">
+      <DependentUpon>202205080638483_ResourceUse and EquipmentUse reverse reference.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BlackBoard.cs" />
     <Compile Include="Models\Client.cs" />
@@ -100,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203221816427_seed.resx">
       <DependentUpon>202203221816427_seed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205080638483_ResourceUse and EquipmentUse reverse reference.resx">
+      <DependentUpon>202205080638483_ResourceUse and EquipmentUse reverse reference.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

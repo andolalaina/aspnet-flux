@@ -15,6 +15,8 @@ namespace GestionFlux.Domain.Models
         public decimal Price { get; set; }
         public string Ref { get; set; }
         public int InStock { get; set; }
+        public ICollection<EquipmentUse> EquipmentUses { get; set; }
+        public ICollection<ResourceUse> ResourceUses { get; set; }
     }
 
     public class EquipmentUse : BaseEntity

@@ -13,5 +13,7 @@ namespace GestionFlux.Domain.Models
         public string Name { get; set; }
         public string Ref { get; set; }
         public int InStock { get; set; }
+        public ICollection<ResourceUse> ResourceUses { get; set; }
+
     }
 }
