@@ -51,7 +51,7 @@ namespace GestionFlux.Service.Production
                 ProductionViewModels.ProductionProcessDetail productionProcessDetail = new ProductionViewModels.ProductionProcessDetail {
                     Name = product.Name,
                     InStock = product.InStock,
-                    equipments = equipments,
+                    Equipments = equipments,
                     Quantity = 30,
                     QuantitySMA = 30
                 };

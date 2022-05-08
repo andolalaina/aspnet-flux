@@ -12,7 +12,7 @@ namespace GestionFlux.Service.Production
         {
             public string Name { get; set;}
             public int InStock { get; set;}
-            public ICollection<EquipmentDetail> equipments;
+            public ICollection<EquipmentDetail> Equipments;
             public int Quantity { get; set;}
             public int QuantitySMA { get; set;}
         }
