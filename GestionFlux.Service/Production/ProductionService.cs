@@ -49,6 +49,7 @@ namespace GestionFlux.Service.Production
                     });
                 }
                 ProductionViewModels.ProductionProcessDetail productionProcessDetail = new ProductionViewModels.ProductionProcessDetail {
+                    Id = product.Id,
                     Name = product.Name,
                     InStock = product.InStock,
                     Equipments = equipments,

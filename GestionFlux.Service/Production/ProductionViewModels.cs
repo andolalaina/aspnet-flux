@@ -8,8 +8,9 @@ namespace GestionFlux.Service.Production
 {
     public class ProductionViewModels
     {
-        public class ProductionProcessDetail
-        {
+        public class ProductionProcessDetail { 
+        
+            public int Id { get; set; }
             public string Name { get; set;}
             public int InStock { get; set;}
             public ICollection<EquipmentDetail> Equipments;
