@@ -66,9 +66,9 @@ namespace GestionFlux.Service.Production
             throw new NotImplementedException();
         }
 
-        public void SetProductionQuantity(int ProductId, int NewQuantity)
+        public void updateProductionProcess(int ProductId, ProductionViewModels.ProductionProcessDetail newProcess)
         {
-            throw new NotImplementedException();
+            _productRepository.Update(ProductId, new Product { Name= newProcess.Name, InStock = newProcess.InStock });
         }
     }
 }

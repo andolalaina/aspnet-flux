@@ -14,6 +14,6 @@ namespace GestionFlux.Service.Production
         void RemoveProductEquipmentUse(int productId, int equipmentId);
         IEnumerable<EquipmentUse> GetProductEquipmentUses(int productId);
         bool ReplaceMaterial(int ProductId);
-        void SetProductionQuantity(int ProductId, int NewQuantity);
+        void updateProductionProcess(int ProductId, ProductionViewModels.ProductionProcessDetail newProcess);
     }
 }

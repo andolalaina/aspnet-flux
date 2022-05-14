@@ -25,11 +25,10 @@ namespace GestionFlux.API.Controllers
             return Ok(_marketingService.GetProducts());
         }
         [HttpGet]
-        public IHttpActionResult Get([FromUri] string viewFor)
+        [Route("api/products/processes")]
+        public IHttpActionResult GetProcesses()
         {
-            if (viewFor == null) return Ok(_marketingService.GetProducts());
-            if (viewFor.ToLower() == "production") return Ok(_productionService.GetProductionProcesses());
-            return BadRequest("Le paramètre viewFor n'est pas reconnu.");
+            return Ok(_productionService.GetProductionProcesses());
         }
         [HttpPost]
         [Route("api/products/equipment-use")]
@@ -42,6 +41,14 @@ namespace GestionFlux.API.Controllers
         public IHttpActionResult Update([FromBody] Product p)
         {
             _marketingService.UpdateProduct(p);
+            return Ok();
+        }
+        [HttpPut]
+        [Route("api/products/processes")]
+        public IHttpActionResult UpdateProcess([FromBody] ProductionViewModels.ProductionProcessDetail processDetail)
+        {
+            System.Diagnostics.Debug.WriteLine("Niantso...");
+            _productionService.updateProductionProcess(processDetail.Id, processDetail);
             return Ok();
         }
         [HttpDelete]
