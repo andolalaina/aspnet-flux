@@ -14,7 +14,7 @@ namespace GestionFlux.Service.Messaging
     {
         IEnumerable<Request> GetRequests(int? senderId = 0, int? sentToId = 0);
         Request GetRequest(int id);
-        void InsertRequest(Request request);
+        void InsertRequest(MessagingViewModels.RequestViewModels request);
 
         IEnumerable<Notification> GetNotifications(int sentToId);
         Notification GetNotification(int id);

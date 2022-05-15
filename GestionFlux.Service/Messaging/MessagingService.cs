@@ -7,18 +7,22 @@ using GestionFlux.Repository;
 using GestionFlux.Service.Messaging;
 using System.Collections.Generic;
 using System.Linq;
+using GestionFlux.Repository.User;
+using GestionFlux.Repository.Request;
 
 namespace GestionFlux.Service.Messaging
 {
     public class MessagingService : IMessagingService
     {
-        private BaseRepository<Request, FluxDbContext> _requestRepository;
-        private BaseRepository<Notification, FluxDbContext> _notificationRepository;
+        private IRequestRepository<Request, FluxDbContext> _requestRepository;
+        private IRepository<Notification, FluxDbContext> _notificationRepository;
+        private IUserRepository<User, FluxDbContext> _userRepository;
 
-        public MessagingService(BaseRepository<Request, FluxDbContext> requestRepo, BaseRepository<Notification, FluxDbContext> notificationRepo)
+        public MessagingService(IRequestRepository<Request, FluxDbContext> requestRepo, IRepository<Notification, FluxDbContext> notificationRepo, IUserRepository<User, FluxDbContext> userRepo)
         {
             _requestRepository = requestRepo;
             _notificationRepository = notificationRepo;
+            _userRepository = userRepo;
         }
         public IEnumerable<Request> GetRequests(int? senderId = 0, int? sentToId = 0)
         {
@@ -31,9 +35,9 @@ namespace GestionFlux.Service.Messaging
         {
             return _requestRepository.Get(id);
         }
-        public void InsertRequest(Request request)
+        public void InsertRequest(MessagingViewModels.RequestViewModels request)
         {
-            _requestRepository.Insert(request);
+            _requestRepository.sendRequest(request.Message, request.SenderId, request.SendToId);
         }
 
         public IEnumerable<Notification> GetNotifications(int sentToId)

@@ -12,8 +12,8 @@ namespace GestionFlux.Domain.Models
     public class Request : BaseEntity, IMessage
     {
         public virtual User Sender { get; set; }
+        public virtual User SendTo { get; set; }
         public string Description { get; set; }
         public DateTime SendDate { get; set; }
-        public User SendTo { get; set; }
     }
 }

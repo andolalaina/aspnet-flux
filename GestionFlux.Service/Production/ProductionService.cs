@@ -44,6 +44,7 @@ namespace GestionFlux.Service.Production
                 foreach (Equipment equipment in _productRepository.GetEquipments(product.Id))
                 {
                     equipments.Add(new ProductionViewModels.EquipmentDetail {
+                        Id = equipment.Id,
                         Name = equipment.Name,
                         Usability = equipment.Usability
                     });

@@ -16,6 +16,7 @@ using GestionFlux.Repository.Department;
 using GestionFlux.Repository.User;
 using GestionFlux.Repository.Product;
 using GestionFlux.Service.Production;
+using GestionFlux.Repository.Request;
 
 namespace GestionFlux.API
 {
@@ -39,10 +40,17 @@ namespace GestionFlux.API
             container.RegisterType<IProductionService, ProductionService>();
 
             container.RegisterType<IService<Resource, FluxDbContext>, GenericService<Resource, FluxDbContext>>();
+            
             container.RegisterType<IRepository<Resource, FluxDbContext>, BaseRepository<Resource, FluxDbContext>>();
+            container.RegisterType<IRepository<Request, FluxDbContext>, BaseRepository<Request, FluxDbContext>>();
+            container.RegisterType<IRepository<Notification, FluxDbContext>, BaseRepository<Notification, FluxDbContext>>();
             container.RegisterType<IRepository<Equipment, FluxDbContext>, BaseRepository<Equipment, FluxDbContext>>();
 
 
+            container.RegisterType<
+                IRequestRepository<Request, FluxDbContext>,
+                RequestRepository<Request, FluxDbContext>
+            >();
             container.RegisterType<
                 IDepartmentRepository<Department, FluxDbContext>,
                 DepartmentRepository<Department, FluxDbContext>

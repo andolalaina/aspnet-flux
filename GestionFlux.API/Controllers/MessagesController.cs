@@ -13,48 +13,36 @@ namespace GestionFlux.API.Controllers
 {
     public class MessagesController : ApiController
     {
-        private IMessagingService messageService;
-        private IAuthService userService;
+        private IMessagingService _messagingService;
+        private IAuthService _userService;
 
         public MessagesController(IMessagingService messageService, IAuthService userService)
         {
-            this.messageService = messageService;
-            this.userService = userService;
+            this._messagingService = messageService;
+            this._userService = userService;
         }
 
         [HttpGet]
         [Route("api/requests")]
         public IHttpActionResult Get([FromUri] int sender = 0, [FromUri] int sentTo = 0)
         {
-            return Ok(messageService.GetRequests(sender, sentTo));
+            return Ok(_messagingService.GetRequests(sender, sentTo));
         }
 
         [HttpGet]
         [Route("api/requests/{requestId}")]
         public IHttpActionResult Get(int requestId)
         {
-            if (messageService.GetRequest(requestId) == null) return NotFound();
-            return Ok(messageService.GetRequest(requestId));
+            if (_messagingService.GetRequest(requestId) == null) return NotFound();
+            return Ok(_messagingService.GetRequest(requestId));
         }
 
         [HttpPost]
         [Route("api/requests")]
-        public IHttpActionResult Create([FromBody] RequestViewModel model)
+        public IHttpActionResult SendRequest([FromBody] MessagingViewModels.RequestViewModels request)
         {
-            try
-            {
-                Request request = new Request
-                {
-                    Sender = userService.GetUser(model.SenderId),
-                    SendTo = userService.GetUser(model.SentToId),
-                    SendDate = DateTime.Now,
-                    Description = model.Description
-                };
-                return Ok(request);
-            } catch (Exception ex)
-            {
-                return BadRequest(ex.ToString());
-            }
+            _messagingService.InsertRequest(request);
+            return Ok();
         }
     }
 }
