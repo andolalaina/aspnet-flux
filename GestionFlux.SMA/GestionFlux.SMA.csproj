@@ -59,6 +59,10 @@
       <Project>{49f963b3-9528-4220-8600-3b4cabb80ced}</Project>
       <Name>GestionFlux.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GestionFlux.Repository\GestionFlux.Repository.csproj">
+      <Project>{1DC5E66E-3E65-4984-B195-62B1F48135DF}</Project>
+      <Name>GestionFlux.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

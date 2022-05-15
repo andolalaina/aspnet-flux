@@ -14,15 +14,23 @@ namespace GestionFlux.API.Controllers
     {
         private IMarketingService _marketingService;
         private IProductionService _productionService;
-        public ProductsController(IMarketingService marketingService, IProductionService productionService)
+        private SMA.Agents.Marketing _marketingAgent;
+        public ProductsController(IMarketingService marketingService, IProductionService productionService, SMA.Agents.Marketing marketingAgent)
         {
             this._marketingService = marketingService;
             this._productionService = productionService;
+            _marketingAgent = marketingAgent;
         }
         [HttpGet]
         public IHttpActionResult Get()
         {
-            return Ok(_marketingService.GetProducts());
+            return Ok(_marketingAgent.GetSuggProducts());
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetProductDetail([FromUri] int productId)
+        {
+            return Ok(_marketingAgent.GetSuggProduct(productId));
         }
         [HttpGet]
         [Route("api/products/processes")]
@@ -47,7 +55,6 @@ namespace GestionFlux.API.Controllers
         [Route("api/products/processes")]
         public IHttpActionResult UpdateProcess([FromBody] ProductionViewModels.ProductionProcessDetail processDetail)
         {
-            System.Diagnostics.Debug.WriteLine("Niantso...");
             _productionService.updateProductionProcess(processDetail.Id, processDetail);
             return Ok();
         }

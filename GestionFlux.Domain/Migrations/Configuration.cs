@@ -26,6 +26,11 @@
                 new Product() { Id = 3, Name = "Pain", InStock = 10, Price = 3000, Ref = "P003", Score = 100 }
                 );
 
+            foreach (var product in context.Products)
+            {
+                context.SuggProducts.AddOrUpdate(x => x.Id, new SuggProduct() { Product = product, SuggPrice = product.Price + 120 });
+            }
+
             context.Clients.AddOrUpdate(x => x.Id,
                 new Client() { Id = 1, Age = 23, Locality = "Analamanga", Sex = "Homme"},
                 new Client() { Id = 2, Age = 21, Locality = "Analamanga", Sex = "Femme"},

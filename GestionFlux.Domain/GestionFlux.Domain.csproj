@@ -75,6 +75,18 @@
     <Compile Include="Migrations\202205151045556_fix send-to-user in request.designer.cs">
       <DependentUpon>202205151045556_fix send-to-user in request.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205151545158_Add fields to blackboard.cs" />
+    <Compile Include="Migrations\202205151545158_Add fields to blackboard.designer.cs">
+      <DependentUpon>202205151545158_Add fields to blackboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205151546180_Fix blackboard fieldname.cs" />
+    <Compile Include="Migrations\202205151546180_Fix blackboard fieldname.designer.cs">
+      <DependentUpon>202205151546180_Fix blackboard fieldname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205151806547_add virtual.cs" />
+    <Compile Include="Migrations\202205151806547_add virtual.designer.cs">
+      <DependentUpon>202205151806547_add virtual.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BlackBoard.cs" />
     <Compile Include="Models\Client.cs" />
@@ -114,6 +126,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205151045556_fix send-to-user in request.resx">
       <DependentUpon>202205151045556_fix send-to-user in request.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205151545158_Add fields to blackboard.resx">
+      <DependentUpon>202205151545158_Add fields to blackboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205151546180_Fix blackboard fieldname.resx">
+      <DependentUpon>202205151546180_Fix blackboard fieldname.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205151806547_add virtual.resx">
+      <DependentUpon>202205151806547_add virtual.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

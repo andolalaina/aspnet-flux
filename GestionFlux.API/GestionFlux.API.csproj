@@ -309,6 +309,10 @@
       <Project>{8872BD2A-C7D8-4A99-B556-96D9A05750D7}</Project>
       <Name>GestionFlux.Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GestionFlux.SMA\GestionFlux.SMA.csproj">
+      <Project>{87ec7994-20fa-42ac-9f7e-df36e9a57858}</Project>
+      <Name>GestionFlux.SMA</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

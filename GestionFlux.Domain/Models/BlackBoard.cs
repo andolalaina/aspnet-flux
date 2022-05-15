@@ -11,26 +11,29 @@ namespace GestionFlux.Domain.Models
     public class BlackBoard : BaseEntity
     {
         public Product HighValueProduct { get; set; }
+        public ICollection<SuggProduct> SuggProducts { get; set; }
+        public ICollection<SuggEquipment> SuggEquipments { get; set; }
+        public ICollection<SuggResource> SuggResources { get; set; }
 
     }
 
     public class SuggProduct : BaseEntity, IConcurrent
     {
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
         public decimal SuggPrice { get; set; }
         public bool InAccess { get; set; }
     }
 
     public class SuggEquipment : BaseEntity, IConcurrent
     {
-        public Equipment Equipment{ get; set; }
+        public virtual Equipment Equipment{ get; set; }
         public int Quantity { get; set; }
         public bool InAccess { get; set; }
     }
 
     public class SuggResource: BaseEntity, IConcurrent
     {
-        public Resource Resource { get; set; }
+        public virtual Resource Resource { get; set; }
         public int Quantity { get; set; }
         public bool InAccess { get; set; }
     }
