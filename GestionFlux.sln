@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFlux", "GestionFlux.csproj", "{5A642C5E-8078-45AB-B98C-AFD489420A40}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFlux.SMA", "GestionFlux.SMA\GestionFlux.SMA.csproj", "{87EC7994-20FA-42AC-9F7E-DF36E9A57858}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionFlux.Domain", "GestionFlux.Domain\GestionFlux.Domain.csproj", "{49F963B3-9528-4220-8600-3B4CABB80CED}"
@@ -23,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5A642C5E-8078-45AB-B98C-AFD489420A40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A642C5E-8078-45AB-B98C-AFD489420A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A642C5E-8078-45AB-B98C-AFD489420A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A642C5E-8078-45AB-B98C-AFD489420A40}.Release|Any CPU.Build.0 = Release|Any CPU
 		{87EC7994-20FA-42AC-9F7E-DF36E9A57858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{87EC7994-20FA-42AC-9F7E-DF36E9A57858}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87EC7994-20FA-42AC-9F7E-DF36E9A57858}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -56,7 +50,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 		SolutionGuid = {E9F619B6-BE5D-477C-A30F-429C3FE7BECB}
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 	EndGlobalSection
 EndGlobal
