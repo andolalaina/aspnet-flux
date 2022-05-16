@@ -43,11 +43,14 @@ namespace GestionFlux.Service.Production
                 ICollection<ProductionViewModels.EquipmentDetail> equipments = new List<ProductionViewModels.EquipmentDetail>();
                 foreach (Equipment equipment in _productRepository.GetEquipments(product.Id))
                 {
-                    equipments.Add(new ProductionViewModels.EquipmentDetail {
-                        Id = equipment.Id,
-                        Name = equipment.Name,
-                        Usability = equipment.Usability
-                    });
+                    if (equipment != null)
+                    {
+                        equipments.Add(new ProductionViewModels.EquipmentDetail {
+                            Id = equipment.Id,
+                            Name = equipment.Name,
+                            Usability = equipment.Usability
+                        });
+                    }
                 }
                 ProductionViewModels.ProductionProcessDetail productionProcessDetail = new ProductionViewModels.ProductionProcessDetail {
                     Id = product.Id,
